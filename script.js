@@ -13,6 +13,7 @@ const red = document.querySelector("#red p");
 const green = document.querySelector("#green p");
 const heading4 = document.querySelector("#heading4");
 let dummy = [];
+let user = null;
 let question = null;
 const questiondiv = document.querySelector(".question");
 const options = document.querySelectorAll(".option");
@@ -20,6 +21,7 @@ const mainOption = document.querySelector("#options");
 const quizdiv = document.querySelector("#quiz");
 const startdivbutton = document.querySelector("#sub-start");
 const selectboxes = document.querySelector("#content-starts");
+const playerNames = localStorage.getItem("ls_name") === null ? [] : JSON.parse(localStorage.getItem("ls_name"));
 
 
 
@@ -41,13 +43,18 @@ function create() {
     }
     else {
         popup1.style.display = "none";
+
+        createUser.style.display = "none"
+        const obj = { name: input.value };
+        playerNames.push(obj);
+        localStorage.setItem("ls_name", JSON.stringify(playerNames));
+        // localStorage.setItem("ls_name", input.value);
         let div = document.createElement("div");
         div.classList = "user";
-        div.innerHTML = input.value;
+        user = JSON.parse(localStorage.getItem("ls_name"));
+        div.innerHTML = user[user.length - 1].name
         div.style.color = "#000";
         parent.append(div);
-        createUser.style.display = "none"
-        localStorage.setItem("ls_name", input.value);
         green.style.display = "block";
         setTimeout(() => {
             green.style.display = "none";
@@ -60,8 +67,6 @@ function create() {
 startQuiz.addEventListener("click", START);
 
 function START() {
-    let data = localStorage.getItem("ls_name");
-    console.log(data);
 
     if (input.value === "") {
         red.style.display = "block";
@@ -74,7 +79,7 @@ function START() {
     else {
         wrapper.style.display = "none";
         main.style.display = "block";
-        heading4.append(data)
+        heading4.append( user[user.length - 1].name)
     }
 
 
