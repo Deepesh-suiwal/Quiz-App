@@ -154,14 +154,11 @@ ul li a {
   color: black;
 }
 
-#content-parent {
-  height: 100vh;
-  width: 100%;
-  text-align: center;
-}
 
 #content-starts {
   margin: 0 auto;
+  text-align: center;
+  width: 100%;
 }
 
 #content-starts h1,
@@ -221,4 +218,13 @@ p {
 
 .click {
   cursor: pointer;
+}
+
+#questionPage{
+  height: 200px;
+  width: 50%;
+  background-color: #000;
+}
+.gayab{
+  display: none;
 }
