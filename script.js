@@ -7,6 +7,8 @@ const parent = document.querySelector("#parent");
 const popup1 = document.querySelector("#popupbox1");
 const wrapper = document.querySelector("#wrapper");
 const main = document.querySelector("#main");
+const red = document.querySelector("#red p");
+const green = document.querySelector("#green p");
 const heading4 = document.querySelector("#heading4");
 
 
@@ -36,7 +38,13 @@ function create() {
         parent.append(div);
         createUser.style.display = "none"
         localStorage.setItem("ls_name", input.value);
-        // input.value = "";
+
+        green.style.display = "block";
+
+        setTimeout(() => {
+            green.style.display = "none";
+        }, 2000);
+
 
     }
 }
@@ -48,7 +56,11 @@ function START() {
     console.log(data);
 
     if (input.value === "") {
-        alert("Create a User First");
+        red.style.display = "block";
+
+        setTimeout(() => {
+            red.style.display = "none";
+        }, 2000);
     }
 
     else {
