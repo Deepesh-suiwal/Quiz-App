@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizApp2</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -60,13 +61,13 @@
 
 
 
-    <div id="main">
+    <div id="main" class="gayab">
 
         <div id="quiz-parent">
             <div id="header">
                 <h3>Quiz Pop</h3>
                 <ul>
-                    <li class="click"><a href="">Home</a></li>
+                    <li class="exit">Home</li>
                     <li>Quiz</li>
                     <li>Score</li>
                 </ul>
@@ -76,25 +77,28 @@
 
             </div>
         </div>
-        
-            <div id="content-starts">
-                <h1>Welcome to Quiz App</h1>
-                <h2>Select Topic</h2>
-                <div class="topicOne">
-                    <p>Music</p>
-                </div>
-                <div class="topicTwo">
-                    <p>Modern Art</p>
-                </div>
-                <div class="topicThree">
-                    <p>Coding</p>
-                </div>
-                <button id="sub-start">Start</button>
+
+        <div id="content-starts">
+            <h1>Welcome to Quiz App</h1>
+            <h2>Select Topic</h2>
+            <div class="topicOne">
+                <p>Music</p>
             </div>
+            <div class="topicTwo">
+                <p>Modern Art</p>
+            </div>
+            <div class="topicThree">
+                <p>Coding</p>
+                <span id="icon"><i class="fa-regular fa-circle-check"></i></span>
+            </div>
+            <button id="sub-start">Start</button>
+        </div>
 
     </div>
-    
+
     <div id="quiz" class="gayab">
+
+        <h4 class="timer"></h4>
 
         <p class="question"></p>
         <div id="options">
@@ -102,6 +106,23 @@
             <p class="option"></p>
             <p class="option"></p>
             <p class="option"></p>
+        </div>
+        <div id="nextquit">
+            <button id="Next">Next</button>
+            <button id="Stop">Quit</button>
+        </div>
+
+
+    </div>
+
+    <div id="welldone" class="gayab">
+        <h1>Well Done You answered All the Questions.</h1>
+        <p class="showresult"></p>
+        <div id="resultbuttons">
+            <button id="Result">Get Result </button>
+            <button id="Again">Play Again</button>
+            <button id="Quit2">Quit</button>
+
         </div>
     </div>
 
