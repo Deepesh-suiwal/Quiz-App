@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizApp2</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -69,10 +71,28 @@
                 <ul>
                     <li class="exit">Home</li>
                     <li>Quiz</li>
-                    <li>Score</li>
+                    <li id="showscore">Score</li>
                 </ul>
                 <div id="heading4">
                     <h4></h4>
+                </div>
+
+            </div>
+            <div id="scorebox">
+                <h1 class="totalscore">Total Scores</h1>
+                <div class="parent">
+                    <div class="whitebox1">
+                        <span>Topic</span>
+                        <span>Score</span>
+                        <span>Date and Time</span>
+
+                    </div>
+                    <div class="whitebox1">
+                        <span>Coding</span>
+                        <span id="displayfinalscore"></span>
+                        <span id="displaydateandtime">Date and Time</span>
+
+                    </div>
                 </div>
 
             </div>
