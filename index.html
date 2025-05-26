@@ -1,154 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QuizApp2</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<body>
+  <body>
     <div id="wrapper">
-        <div id="parent">
+      <div id="parent">
+        <div class="quizpop">
+          <h2>Quiz Pop</h2>
+        </div>
+        <div class="createUser">
+          <button id="btn1">Create User</button>
+        </div>
+      </div>
 
-            <div class="quizpop">
-                <h2>Quiz Pop</h2>
-            </div>
-            <div class="createUser">
-                <button id="btn1">Create User</button>
-            </div>
+      <div id="red">
+        <p>Please Create a User</p>
+      </div>
+      <div id="green">
+        <p>User Created Successfully</p>
+      </div>
+
+      <div id="startQuiz">
+        <div id="popupbox1">
+          <div id="form">
+            <label for="">Enter Name:</label>
+            <input type="text" placeholder="Enter your name" id="input" />
+          </div>
+          <div id="buttons1">
+            <button id="btn-btn1">Create</button>
+            <button id="btn-btn2">Quit</button>
+          </div>
+        </div>
+        <div class="left">
+          <div class="heading">
+            <h1>Take your <span id="red">Knowledge</span> to next level</h1>
+          </div>
+          <div class="createUser1">
+            <button id="btn2">Start Quiz></button>
+          </div>
         </div>
 
-        <div id="red">
-            <p>Please Create a User</p>
+        <div class="image">
+          <img src="./image1.jpeg" alt="" />
         </div>
-        <div id="green">
-            <p>User Created Successfully</p>
-
-        </div>
-
-
-
-        <div id="startQuiz">
-            <div id="popupbox1">
-                <div id="form">
-                    <label for="">Enter Name:</label>
-                    <input type="text" placeholder="Enter your name" id="input">
-                </div>
-                <div id="buttons1">
-                    <button id="btn-btn1">Create</button>
-                    <button id="btn-btn2">Quit</button>
-                </div>
-            </div>
-            <div class="left">
-                <div class="heading">
-                    <h1>Take your <span id="red">Knowledge</span> to next level</h1>
-                </div>
-                <div class="createUser1">
-                    <button id="btn2">Start Quiz></button>
-                </div>
-            </div>
-
-            <div class="image">
-                <img src="./image1.jpeg" alt="">
-            </div>
-        </div>
-
+      </div>
     </div>
-
-
-
 
     <div id="main" class="gayab">
-
-        <div id="quiz-parent">
-            <div id="header">
-                <h3>Quiz Pop</h3>
-                <ul>
-                    <li class="exit">Home</li>
-                    <li>Quiz</li>
-                    <li id="showscore">Score</li>
-                </ul>
-                <div id="heading4">
-                    <h4></h4>
-                </div>
-
-            </div>
-            <div id="scorebox">
-                <h1 class="totalscore">Total Scores</h1>
-                <div class="parent">
-                    <div class="whitebox1">
-                        <span>Topic</span>
-                        <span>Score</span>
-                        <span>Date and Time</span>
-
-                    </div>
-                    <div class="whitebox1">
-                        <span>Coding</span>
-                        <span id="displayfinalscore"></span>
-                        <span id="displaydateandtime">Date and Time</span>
-
-                    </div>
-                </div>
-
-            </div>
+      <div id="quiz-parent">
+        <div id="header">
+          <h3>Quiz Pop</h3>
+          <ul>
+            <li class="exit">Home</li>
+            <li>Quiz</li>
+            <li id="showscore">Score</li>
+          </ul>
+          <div id="heading4">
+            <h4></h4>
+          </div>
         </div>
-
-        <div id="content-starts">
-            <h1>Welcome to Quiz App</h1>
-            <h2>Select Topic</h2>
-            <div class="topicOne">
-                <p>Music</p>
+        <div id="scorebox">
+          <h1 class="totalscore">Total Scores</h1>
+          <div class="parent">
+            <div class="whitebox1">
+              <span>Topic</span>
+              <span>Score</span>
+              <span>Date and Time</span>
             </div>
-            <div class="topicTwo">
-                <p>Modern Art</p>
+            <div class="whitebox1">
+              <span id="category"></span>
+              <span id="displayfinalscore"></span>
+              <span id="displaydateandtime">Date and Time</span>
             </div>
-            <div class="topicThree">
-                <p>Coding</p>
-                <span id="icon"><i class="fa-regular fa-circle-check"></i></span>
-            </div>
-            <button id="sub-start">Start</button>
+          </div>
         </div>
+      </div>
 
-    </div>
+      <div id="content-starts">
+        <h1>Welcome to Quiz App</h1>
+        <h2>Select Topic</h2>
+        <div class="topicOne">
+          <p>Music</p>
+          <span class="icon"><i class="fa-regular fa-circle-check"></i></span>
+        </div>
+        <div class="topicTwo">
+          <p>Modern Art</p>
+          <span class="icon"><i class="fa-regular fa-circle-check"></i></span>
+        </div>
+        <div class="topicThree">
+          <p>Coding</p>
+          <span class="icon"><i class="fa-regular fa-circle-check"></i></span>
+        </div>
+        <button id="sub-start">Start</button>
+      </div>
+    </div>      
 
     <div id="quiz" class="gayab">
+      <h4 class="timer"></h4>
 
-        <h4 class="timer"></h4>
-
-        <p class="question"></p>
-        <div id="options">
-            <p class="option"></p>
-            <p class="option"></p>
-            <p class="option"></p>
-            <p class="option"></p>
-        </div>
-        <div id="nextquit">
-            <button id="Next">Next</button>
-            <button id="Stop">Quit</button>
-        </div>
-
-
+      <p class="question"></p>
+      <div id="options">
+        <p class="option"></p>
+        <p class="option"></p>
+        <p class="option"></p>
+        <p class="option"></p>
+      </div>
+      <div id="nextquit">
+        <button id="Next">Next</button>
+        <button id="Stop">Quit</button>
+      </div>
     </div>
 
     <div id="welldone" class="gayab">
-        <h1>Well Done You answered All the Questions.</h1>
-        <p class="showresult"></p>
-        <div id="resultbuttons">
-            <button id="Result">Get Result </button>
-            <button id="Again">Play Again</button>
-            <button id="Quit2">Quit</button>
-
-        </div>
+      <h1>Well Done You answered All the Questions.</h1>
+      <p class="showresult"></p>
+      <div id="resultbuttons">
+        <button id="Result">Get Result</button>
+        <button id="Again">Play Again</button>
+        <button id="Quit2">Quit</button>
+      </div>
     </div>
 
-
-
     <script type="module" src="script.js"></script>
-</body>
-
+  </body>
 </html>
