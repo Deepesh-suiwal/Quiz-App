@@ -41,7 +41,6 @@
   height: 300px;
   width: 300px;
   border: 2px solid red;
-
 }
 
 .image img {
@@ -69,7 +68,6 @@
   cursor: pointer;
 }
 
-
 #popupbox1 {
   background-color: #fff;
   width: 300px;
@@ -86,12 +84,10 @@
   height: 60px;
 }
 
-
 #btn-btn1 {
   color: #fff;
   background-color: #000;
   padding: 7px;
-
 }
 
 #btn-btn2 {
@@ -127,9 +123,6 @@
   text-align: center;
 }
 
-
-
-
 #header {
   width: 100%;
   height: 100px;
@@ -154,12 +147,10 @@ ul li a {
   color: black;
 }
 
-
 #content-starts {
   margin: 0 auto;
   text-align: center;
   width: 100%;
-
 }
 
 #content-starts h1,
@@ -191,7 +182,6 @@ h2 {
   width: 50%;
   margin: 0.5rem auto;
   background-color: darkblue;
-
 }
 
 .topicTwo p {
@@ -221,7 +211,6 @@ h2 {
   margin-top: 1rem;
 }
 
-
 #center {
   display: flex;
   align-items: center;
@@ -241,7 +230,7 @@ h2 {
 .gayab {
   display: none;
 }
-.middleQuiz{
+.middleQuiz {
   cursor: pointer;
 }
 #quiz {
@@ -257,7 +246,7 @@ h2 {
   padding: 10px 42px;
   font-size: 18px;
   cursor: pointer;
-  margin: 0 3.0rem;
+  margin: 0 3rem;
 }
 
 #Stop {
@@ -266,7 +255,7 @@ h2 {
   padding: 10px 42px;
   font-size: 18px;
   cursor: pointer;
-  margin: 0 3.0rem;
+  margin: 0 3rem;
 }
 
 #nextquit {
@@ -286,7 +275,7 @@ h2 {
   color: #000;
   text-align: center;
   margin: 3.5rem auto;
-  padding: 3.0rem;
+  padding: 3rem;
 }
 
 #Result {
@@ -331,19 +320,19 @@ h2 {
   border-radius: 50%;
   font-size: 21px;
 }
-.showresult{
+.showresult {
   font-size: 20px;
   color: green;
   padding-top: 10px;
   display: none;
 }
-.exit{
+.exit {
   cursor: pointer;
 }
-.clicked{
+.clicked {
   pointer-events: none;
 }
-#scorebox{
+#scorebox {
   height: 400px;
   width: 100%;
   background-color: darkgray;
@@ -351,7 +340,7 @@ h2 {
   display: none;
   padding: 2rem auto;
 }
-.whitebox1{
+.whitebox1 {
   height: 70px;
   width: 500px;
   background-color: #fff;
@@ -361,19 +350,220 @@ h2 {
   justify-content: space-between;
   margin: 10px;
   padding: 0 10px;
-
 }
-.parent{
+.parent {
   position: absolute;
   top: 8rem;
   right: 30rem;
 }
 
-.totalscore{
+.totalscore {
   font-size: 40px;
-  padding-top:2rem;
+  padding-top: 2rem;
   text-align: center;
 }
-#showscore{
+#showscore {
   cursor: pointer;
+}
+
+/* meadiQuery */
+
+#wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#startQuiz,
+.left,
+.image,
+.topicOne,
+.topicTwo,
+.topicThree,
+#quiz,
+#welldone,
+#scorebox,
+.whitebox1 {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+.topicOne,
+.topicTwo,
+.topicThree {
+  margin-top: 0.5rem;
+}
+
+/* Tablet (iPad) */
+@media (min-width: 600px) and (max-width: 1024px) {
+  #startQuiz {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .left {
+    width: 80%;
+  }
+
+  .image {
+    width: 80%;
+    height: auto;
+  }
+
+  #popupbox1 {
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #red p,
+  #green p {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+
+  .topicOne,
+  .topicTwo,
+  .topicThree {
+    width: 80%;
+  }
+
+  #quiz {
+    width: 90%;
+    margin-top: 2rem;
+  }
+
+  #nextquit {
+    padding: 0;
+    text-align: center;
+  }
+
+  .parent {
+    right: 10%;
+    width: 80%;
+  }
+
+  .whitebox1 {
+    width: 90%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+  #parent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #startQuiz {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .left {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .image {
+    width: 90%;
+    height: auto;
+  }
+
+  .image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .heading h1 {
+    font-size: 32px;
+  }
+
+  #popupbox1 {
+    width: 90%;
+    height: auto;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #red p,
+  #green p {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+
+  .topicOne,
+  .topicTwo,
+  .topicThree {
+    width: 90%;
+  }
+
+  #sub-start {
+    width: 90%;
+    height: 40px;
+  }
+
+  #quiz {
+    width: 90%;
+    height: auto;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  #nextquit {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  #Next,
+  #Stop {
+    margin: 1rem auto;
+    width: 80%;
+  }
+
+  #welldone {
+    width: 90%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  #scorebox {
+    padding: 1rem;
+  }
+
+  .whitebox1 {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .parent {
+    width: 100%;
+    right: 0;
+    padding: 1rem;
+    top: auto;
+    position: relative;
+  }
+
+  .totalscore {
+    font-size: 28px;
+  }
+
+  .timer {
+    top: 10px;
+    right: 10px;
+  }
+
+  .icon {
+    left: 20px;
+    top: auto;
+    bottom: 10px;
+  }
 }
