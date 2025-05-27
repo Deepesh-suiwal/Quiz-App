@@ -170,6 +170,7 @@ function startTime() {
         quizdiv.classList.add("gayab");
         console.log("first");
         wellDoneBox.classList.remove("gayab");
+
         clearInterval(interval);
       } else {
         options.forEach((option) => {
@@ -220,6 +221,7 @@ function stopquiz() {
 Quit2.addEventListener("click", quitsession);
 
 function quitsession() {
+  calculateScore();
   useranswer = [];
   QuestionType = null;
   selectedCategory = "";
@@ -243,8 +245,9 @@ function storeUserAnswer(e) {
 }
 
 function calculateScore() {
-  console.log(useranswer);
-  console.log(dummy);
+  // console.log(useranswer);
+  // console.log(dummy);
+
   let finalScore = 0;
   useranswer.forEach((answer, index) => {
     if (answer == QuestionType[dummy[index]].a) {
@@ -254,7 +257,7 @@ function calculateScore() {
   });
   showresult.innerHTML =
     "Your score is " + finalScore + " out of " + QuestionType.length;
-    
+
   category.innerHTML = selectedCategory;
   displayscore.innerHTML = finalScore + " out of " + QuestionType.length;
 }
