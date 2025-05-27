@@ -12,7 +12,7 @@ const input = document.querySelector("#input");
 const parent = document.querySelector("#parent");
 const popup1 = document.querySelector("#popupbox1");
 const wrapper = document.querySelector("#wrapper");
-const main = document.querySelector("#main");
+// const main = document.querySelector("#main");
 const red = document.querySelector("#red p");
 const green = document.querySelector("#green p");
 const heading4 = document.querySelector("#heading4");
@@ -35,11 +35,16 @@ const scorebox = document.querySelector("#scorebox");
 const displayscore = document.querySelector("#displayfinalscore");
 const displaydate = document.querySelector("#displaydateandtime");
 const category = document.querySelector("#category");
+const middleQuiz = document.querySelector(".middleQuiz");
+
+let data = "";
+
 let normal = 0;
 let normal1 = 0;
 let time = 5;
 let dummy = [];
 let selectedCategory = "";
+let hasAppendedName = false;
 let useranswer = [];
 let user = null;
 let question = null;
@@ -64,6 +69,12 @@ Quit.addEventListener("click", () => {
 createUser.addEventListener("click", () => {
   popup1.style.display = "block";
 });
+middleQuiz.addEventListener("click", displayQuiz);
+
+function displayQuiz() {
+  selectboxes.classList.remove("gayab");
+  scorebox.style.display = "none";
+}
 
 Create.addEventListener("click", create);
 
@@ -71,6 +82,7 @@ function create() {
   if (input.value === "") {
     alert("Please enter your name:");
   } else {
+    data = input.value;
     popup1.style.display = "none";
     createUser.style.display = "none";
     const obj = { name: input.value };
@@ -89,20 +101,24 @@ function create() {
     name();
   }
 }
-
 startQuiz.addEventListener("click", START);
 
 function START() {
-  if (input.value === "") {
+  if (!data) {
     red.style.display = "block";
 
     setTimeout(() => {
       red.style.display = "none";
     }, 2000);
-  } else {
+  } else if (data.length > 0) {
+    console.log(data);
     wrapper.style.display = "none";
     selectboxes.classList.remove("gayab");
-    heading4.append(user[user.length - 1].name);
+
+    if (!hasAppendedName) {
+      heading4.append(user[user.length - 1].name);
+      hasAppendedName = true;
+    }
   }
 }
 
@@ -119,23 +135,28 @@ function displayquestion() {
     showquestionoptions();
   }
 }
-function showquestionoptions() {
-  questiondiv.innerHTML = QuestionType[selectquestion()].q;
-  options.forEach((option, index) => {
-    option.innerHTML = QuestionType[question].opt[index];
-  });
-  mainOption.classList.remove("gayab");
-}
 
 function selectquestion() {
+  if (dummy.length >= QuestionType.length) return -1;
   question = Math.floor(Math.random() * QuestionType.length);
-
   if (dummy.includes(question)) return selectquestion();
-  else {
-    // console.log(question)
-    dummy.push(question);
-    return question;
+  dummy.push(question);
+  return question;
+}
+
+function showquestionoptions() {
+  const index = selectquestion();
+  if (index === -1) {
+    quizdiv.classList.add("gayab");
+    wellDoneBox.classList.remove("gayab");
+    clearInterval(interval);
+    return;
   }
+  questiondiv.innerHTML = QuestionType[index].q;
+  options.forEach((option, idx) => {
+    option.innerHTML = QuestionType[index].opt[idx];
+  });
+  mainOption.classList.remove("gayab");
 }
 
 function startTime() {
@@ -147,6 +168,7 @@ function startTime() {
 
       if (dummy.length == 5) {
         quizdiv.classList.add("gayab");
+        console.log("first");
         wellDoneBox.classList.remove("gayab");
         clearInterval(interval);
       } else {
@@ -180,6 +202,7 @@ function bordergreen(element, type) {
     el.style.border = "1px solid #ccc"; // Reset border
   });
   element.style.border = "4px solid green";
+  console.log(selectedCategory);
 
   normal = 1;
 }
@@ -189,7 +212,7 @@ stop.addEventListener("click", stopquiz);
 function stopquiz() {
   selectboxes.classList.remove("gayab");
   quizdiv.classList.add("gayab");
-  icon.style.display = "none";
+  // icon.style.display = "none";
   normal = 0;
   dummy = [];
   clearInterval(interval);
@@ -197,13 +220,15 @@ function stopquiz() {
 Quit2.addEventListener("click", quitsession);
 
 function quitsession() {
+  useranswer = [];
+  QuestionType = null;
   selectedCategory = "";
   question = null;
   dummy = [];
   selectboxes.classList.remove("gayab");
   wellDoneBox.style.display = "none";
-  icon.style.display = "none";
-  // normal = 0;
+  // icon.style.display = "none";
+  normal = 0;
 }
 
 options.forEach((option) => {
@@ -229,6 +254,7 @@ function calculateScore() {
   });
   showresult.innerHTML =
     "Your score is " + finalScore + " out of " + QuestionType.length;
+    
   category.innerHTML = selectedCategory;
   displayscore.innerHTML = finalScore + " out of " + QuestionType.length;
 }
@@ -256,15 +282,16 @@ playagain.addEventListener("click", startagain);
 function startagain() {
   wellDoneBox.classList.add("gayab");
   dummy = [];
+  time = 5;
   showresult.style.display = "none";
   useranswer.length = 0;
   displayquestion();
 }
 
-clearscreen.addEventListener("click", screen1);
+clearscreen.addEventListener("click", resetQuiz);
 
-function screen1() {
-  selectboxes.style.display = "none";
+function resetQuiz() {
+  selectboxes.classList.add("gayab");
   wrapper.style.display = "block";
 }
 
@@ -275,6 +302,8 @@ function ShowScore1() {
     alert("first start a quiz");
   } else {
     tickboxes.classList.add("gayab");
+    // selectboxes.classList.add("gayab");
+
     scorebox.style.display = "block";
   }
 }

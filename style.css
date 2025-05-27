@@ -241,7 +241,9 @@ h2 {
 .gayab {
   display: none;
 }
-
+.middleQuiz{
+  cursor: pointer;
+}
 #quiz {
   height: 400px;
   width: 50%;
