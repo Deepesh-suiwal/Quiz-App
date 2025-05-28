@@ -306,20 +306,6 @@ h2 {
   margin-top: 2.5rem;
 }
 
-.icon {
-  position: absolute;
-  top: 427px;
-  left: 359px;
-  display: none;
-}
-
-.fa-regular.fa-circle-check {
-  font-weight: 900;
-  color: green;
-  background: #fff;
-  border-radius: 50%;
-  font-size: 21px;
-}
 .showresult {
   font-size: 20px;
   color: green;
@@ -394,7 +380,7 @@ h2 {
   margin-top: 0.5rem;
 }
 
-/* Tablet (iPad) */
+
 @media (min-width: 600px) and (max-width: 1024px) {
   #startQuiz {
     flex-direction: column;
@@ -450,7 +436,6 @@ h2 {
   }
 }
 
-/* Mobile */
 @media (max-width: 599px) {
   #parent {
     flex-direction: column;
@@ -561,9 +546,5 @@ h2 {
     right: 10px;
   }
 
-  .icon {
-    left: 20px;
-    top: auto;
-    bottom: 10px;
-  }
+ 
 }

@@ -12,7 +12,6 @@ const input = document.querySelector("#input");
 const parent = document.querySelector("#parent");
 const popup1 = document.querySelector("#popupbox1");
 const wrapper = document.querySelector("#wrapper");
-// const main = document.querySelector("#main");
 const red = document.querySelector("#red p");
 const green = document.querySelector("#green p");
 const heading4 = document.querySelector("#heading4");
@@ -36,6 +35,7 @@ const displayscore = document.querySelector("#displayfinalscore");
 const displaydate = document.querySelector("#displaydateandtime");
 const category = document.querySelector("#category");
 const middleQuiz = document.querySelector(".middleQuiz");
+
 
 let data = "";
 
@@ -74,6 +74,7 @@ middleQuiz.addEventListener("click", displayQuiz);
 function displayQuiz() {
   selectboxes.classList.remove("gayab");
   scorebox.style.display = "none";
+  tickboxes.style.display = "block";
 }
 
 Create.addEventListener("click", create);
@@ -88,6 +89,8 @@ function create() {
     const obj = { name: input.value };
     playerNames.push(obj);
     localStorage.setItem("ls_name", JSON.stringify(playerNames));
+
+    
     let div = document.createElement("div");
     div.classList = "user";
     user = JSON.parse(localStorage.getItem("ls_name"));
@@ -198,11 +201,10 @@ function bordergreen(element, type) {
   else if (element === music) selectedCategory = "Music";
   else if (element === modernArt) selectedCategory = "Modern Art";
 
-  // Highlight selected
   [coding, music, modernArt].forEach((el) => {
-    el.style.border = "1px solid #ccc"; // Reset border
+    el.style.border = "1px solid #ccc";
   });
-  element.style.border = "4px solid green";
+  element.style.border = "6px solid green";
   console.log(selectedCategory);
 
   normal = 1;
@@ -304,9 +306,7 @@ function ShowScore1() {
   if (normal1 <= 0) {
     alert("first start a quiz");
   } else {
-    tickboxes.classList.add("gayab");
-    // selectboxes.classList.add("gayab");
-
+    tickboxes.style.display = "none";
     scorebox.style.display = "block";
   }
 }
