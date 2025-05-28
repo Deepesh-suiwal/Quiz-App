@@ -20,7 +20,6 @@ const wellDoneBox = document.querySelector("#welldone");
 const coding = document.querySelector(".topicThree");
 const music = document.querySelector(".topicOne");
 const modernArt = document.querySelector(".topicTwo");
-
 const stop = document.querySelector("#Stop");
 const showresult = document.querySelector(".showresult");
 const getresult = document.querySelector("#Result");
@@ -35,10 +34,7 @@ const displayscore = document.querySelector("#displayfinalscore");
 const displaydate = document.querySelector("#displaydateandtime");
 const category = document.querySelector("#category");
 const middleQuiz = document.querySelector(".middleQuiz");
-
-
 let data = "";
-
 let normal = 0;
 let normal1 = 0;
 let time = 5;
@@ -55,6 +51,7 @@ const mainOption = document.querySelector("#options");
 const quizdiv = document.querySelector("#quiz");
 const startdivbutton = document.querySelector("#sub-start");
 const selectboxes = document.querySelector("#main");
+
 const playerNames =
   localStorage.getItem("ls_name") === null
     ? []
@@ -89,8 +86,6 @@ function create() {
     const obj = { name: input.value };
     playerNames.push(obj);
     localStorage.setItem("ls_name", JSON.stringify(playerNames));
-
-    
     let div = document.createElement("div");
     div.classList = "user";
     user = JSON.parse(localStorage.getItem("ls_name"));
@@ -171,6 +166,7 @@ function startTime() {
 
       if (dummy.length == 5) {
         quizdiv.classList.add("gayab");
+
         console.log("first");
         wellDoneBox.classList.remove("gayab");
 
@@ -215,7 +211,7 @@ stop.addEventListener("click", stopquiz);
 function stopquiz() {
   selectboxes.classList.remove("gayab");
   quizdiv.classList.add("gayab");
-  // icon.style.display = "none";
+
   normal = 0;
   dummy = [];
   clearInterval(interval);
@@ -231,7 +227,7 @@ function quitsession() {
   dummy = [];
   selectboxes.classList.remove("gayab");
   wellDoneBox.style.display = "none";
-  // icon.style.display = "none";
+  clearInterval(interval);
   normal = 0;
 }
 
@@ -247,9 +243,6 @@ function storeUserAnswer(e) {
 }
 
 function calculateScore() {
-  // console.log(useranswer);
-  // console.log(dummy);
-
   let finalScore = 0;
   useranswer.forEach((answer, index) => {
     if (answer == QuestionType[dummy[index]].a) {
@@ -318,4 +311,41 @@ function name() {
   let data = localStorage.getItem("TD");
 
   displaydate.innerHTML = data;
+}
+
+const logout = document.querySelector(".LogOut");
+
+logout.addEventListener("click", formatQuiz);
+
+function formatQuiz() {
+  wrapper.style.display = "block";
+
+  selectboxes.classList.add("gayab");
+  scorebox.style.display = "none";
+  quizdiv.classList.add("gayab");
+  wellDoneBox.classList.add("gayab");
+  showresult.style.display = "none";
+
+  hasAppendedName = false;
+  data = "";
+  useranswer = [];
+  dummy = [];
+  QuestionType = null;
+  selectedCategory = "";
+  normal = 0;
+  normal1 = 0;
+  clearInterval(interval);
+
+  input.value = "";
+  createUser.style.display = "block";
+  heading4.innerHTML = "";
+  timer.innerHTML = "";
+
+  options.forEach((option) => option.classList.remove("clicked"));
+
+  const userDiv = document.querySelector(".user");
+  if (userDiv) userDiv.remove();
+
+  green.style.display = "none";
+  red.style.display = "none";
 }
